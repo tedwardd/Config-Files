@@ -1,0 +1,1 @@
+alias startp=/Gentoo/startprefix
