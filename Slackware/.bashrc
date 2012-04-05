@@ -10,6 +10,10 @@ if [ -f ~/.bash_aliases ]; then
     source ~/.bash_aliases
 fi
 
+if [ -f ~/.git-completion.sh ]; then
+    source ~/.git-completion.sh
+fi
+
 ulimit -S -c 0  # Don't want any coredumps.
 
 #-------------------------------------------------------------
@@ -51,7 +55,7 @@ function powerprompt()
     PROMPT_COMMAND=_powerprompt
     case $TERM in
         *term | rxvt  )
-            PS1="${HILIT}[\A - \$LOAD]$NC\n[\u@\h \#] \W > \[\033]0;\${TERM} [\u@\h] \w\007\]" ;;
+            PS1='\n${HILIT}[\u@\h | \A - $LOAD] $(__git_ps1 "(%s)")$NC \[\033]0;\${TERM} [\u@\h] \w\007\] \n \w \n ~> ' ;;
         linux )
             PS1="${HILIT}[\A - \$LOAD]$NC\n[\u@\h \#] \W > " ;;
         * )
