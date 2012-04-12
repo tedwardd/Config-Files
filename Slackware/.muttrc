@@ -1,0 +1,31 @@
+my_hdr X-PGP-Key: https://docs.google.com/open?id=0B25TvQOUsiG7Z2Nftjk4eVdqYXc
+set from = "ted.l.wood@gmail.com"
+set realname = "Ted Wood"
+
+set imap_user = "ted.l.wood@gmail.com"
+set imap_pass = ""
+
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set postponed = "+[Gmail]/Drafts"
+
+set header_cache = ~/.mutt/cache/headers
+set message_cachedir = ~/.mutt/cache/bodies
+set certificate_file = ~/.mutt/certificates
+
+set smtp_url = "smtp://ted.l.wood@smtp.gmail.com:587/"
+set smtp_pass = ""
+
+bind editor <space> noop
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
+macro index gs "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to sent mail"
+macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+bind index,pager g group-reply
+
+set editor = 'vim + -c "set textwidth=72" -c "set wrap" -c "set nocp" -c "?^$"'
+set move = no
+set imap_keepalive = 900
+auto_view text/html
+
+source ~/.mutt/crypto
