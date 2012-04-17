@@ -1,3 +1,6 @@
-alias ll="ls -ahl"
+alias ll="ls -Ahl"
 alias cd..="cd .."
-alias ls = "ls -lh --color=auto"
+alias ls="ls --color=auto"
+alias halt="/sbin/halt"
+alias shutdown="/sbin/shutdown"
+alias reboot="/sbin/reboot"
