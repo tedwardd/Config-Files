@@ -1,1 +1,2 @@
-alias startp=/Gentoo/startprefix
+alias stp=/Gentoo/startprefix
+alias ll="ls -Ahl"
