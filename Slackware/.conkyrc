@@ -1,0 +1,10 @@
+out_to_console yes
+out_to_x no
+background no
+update_interval 2
+total_run_times 0
+
+TEXT
+$battery_short $battery_time || \
+${if_existing /proc/net/route wlan0}${wireless_essid wlan0} || ${endif}\
+${time %a %b %d %I:%M%P}
