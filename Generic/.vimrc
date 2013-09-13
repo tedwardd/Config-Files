@@ -1,52 +1,64 @@
-set nocompatible
+let g:ctrlp_map = '<Leader>t'
+let g:ctrlp_match_window_bottom = 0
+let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_custom_ignore = '\v\~$|\.(o|swap|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_dotfiles = 0
+let g:ctrlp_switch_buffer = 0
+" Pathogen Settings
+execute pathogen#infect()
 syntax on
 filetype plugin indent on
-set history=1000
-set autoread
-set ruler
-set cmdheight=2
+
+set tabstop=4
+set shiftwidth=4
+"set expandtab
+set nu
+syntax enable
+filetype indent on
+set ai
+set ic
+set lbr
+"colorscheme delek
+if has ('gui_running')
+    set background=light
+else
+    set background=dark
+endif
+"colorscheme solarized
+map! ,e <emphasis>
+map! ,p <para>
+map <F3> v/><CR>y
+
+" Customizations from statico.github.com/vim.html
+nmap j gj
+nmap k gk
+set incsearch
 set ignorecase
 set smartcase
 set hlsearch
-set incsearch
-set nolazyredraw
-set magic
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
+nmap \q :nohlsearch<CR>
+nmap <C-e> :e#<CR>
+nmap <C-n> :bnext<CR>
+nmap <C-p> :bprev<CR>
+nmap ; :CtrlPBuffer<CR>
+nmap \e :NERDTreeToggle<CR>
 
-syntax enable
+" Resize current buffer by +/-5
+nnoremap <C-left> :vertical resize -5<CR>
+nnoremap <C-down> :resize +5<CR>
+nnoremap <C-up> :resize -5<CR>
+nnoremap <C-right> :vertical resize +5<CR>
 
-set nobackup
-set noswapfile
+" Moving around buffers
+" Vertically
+map <C-J> <C-w>j<C-w>_
+map <C-K> <C-w>k<C-w>_
+" Horizontally
+map <C-H> <C-w>h<C-w>_
+map <C-L> <C-w>l<C-w>_
 
-set expandtab
-set shiftwidth=4
-set tabstop=4
-set smarttab
-
-set lbr
-set tw=500
-set ai
-set si
-set wrap
-
-
-""""""""""""""""""""""""""""""""
-" => Python section
-""""""""""""""""""""""""""""""""
-let python_highlight_all = 1
-au FileType python syn keyword pythonDecorator True None False self
-
-au BufNewFile,BufRead *.jinja set syntax=htmljinja
-au BufNewFile,BufRead *.mako set ft=mako
-
-au FileType python inoremap <buffer> $r return
-au FileType python inoremap <buffer> $i import
-au FileType python inoremap <buffer> $p print
-au FileType python inoremap <buffer> $f #--- PH --------------------------------
-au FileType python map <buffer> <leader>1 /class
-au FileType python map <buffer> <leader>2 /def
-au FileType python map <buffer> <leader>C ?class
-au FileType python map <buffer> <leader>D ?def
+" FIX 256 COLOR ISSUE
+if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
+    set t_Co=256
+endif
