@@ -5,9 +5,10 @@ static const char font[]            = "-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*
 static const char normbordercolor[] = "#444444";
 static const char normbgcolor[]     = "#222222";
 static const char normfgcolor[]     = "#bbbbbb";
-static const char selbordercolor[]  = "#005577";
-static const char selbgcolor[]      = "#005577";
-static const char selfgcolor[]      = "#eeeeee";
+static const char selbordercolor[]  = "#00FF00";
+static const char selbgcolor[]      = "#00FF00";
+/*static const char selfgcolor[]      = "#eeeeee";*/
+static const char selfgcolor[]      = "#222222";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
@@ -26,7 +27,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact      = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster      = 1;    /* number of clients in master area */
-static const Bool resizehints = True; /* True means respect size hints in tiled resizals */
+static const Bool resizehints = False; /* True means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -42,17 +43,30 @@ static const Layout layouts[] = {
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+#include <X11/XF86keysym.h>
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "uxterm", "-fg", "white", "-bg", "black", NULL };
+/*static const char *termcmd[]  = { "uxterm", "-fg", "white", "-bg", "black", NULL };*/
+/*static const char *termcmd[]  = { "st", NULL };*/
+static const char *termcmd[]  = { "lilyterm", NULL };
 static const char *lockcmd[] = { "xscreensaver-command", "-l", NULL };
+static const char *tbirdcmd[] = { "thunderbird", NULL };
+static const char *ffcmd[] = { "firefox", NULL };
+static const char *volup[] = { "amixer", "set", "Master", "3+", "unmute", NULL };
+static const char *voldn[] = { "amixer", "set", "Master", "3-", "unmute", NULL };
+static const char *volmt[] = { "amixer", "set", "Master", "toggle", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{0,                 XF86XK_AudioMute,      spawn,          {.v = volmt } },
+	{0,          XF86XK_AudioRaiseVolume,      spawn,          {.v = volup } },
+	{0,          XF86XK_AudioLowerVolume,      spawn,          {.v = voldn } },
+	{ MODKEY|ShiftMask,		XK_t,      spawn,          {.v = tbirdcmd } },
+	{ MODKEY|ShiftMask,		XK_f,      spawn,          {.v = ffcmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ControlMask,           XK_l,      spawn,          {.v = lockcmd } },
