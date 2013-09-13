@@ -269,6 +269,6 @@ statusbar = {
   };
 };
 settings = {
-  core = { real_name = "K4k"; user_name = "tw3"; nick = "K4k"; };
+  core = { real_name = "K4k"; user_name = "K4k"; nick = "K4k"; };
   "fe-text" = { actlist_sort = "refnum"; };
 };
