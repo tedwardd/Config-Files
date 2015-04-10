@@ -12,3 +12,6 @@
 
 ### 2012-04-18
 *   Updated .bash_aliases file for Mac
+
+### 2015-04-9
+*	Added .Xresources
