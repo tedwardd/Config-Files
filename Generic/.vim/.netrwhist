@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/twood8/git-work/configs/puppet/modules/rhel6_desktop'
+let g:netrw_dirhist_2='/Users/twood8/git-work/configs/puppet/modules/ipa/manifests/client'
+let g:netrw_dirhist_3='/Users/twood8/.vim/bundle'
+let g:netrw_dirhist_4='/Users/twood8/git-work/configs/puppet/nodes'
+let g:netrw_dirhist_5='/Users/twood8/git-work/configs/puppet/modules/ntpd/templates'
+let g:netrw_dirhist_6='/Users/twood8/git-work/configs/puppet/modules/ipa/manifests/client'
+let g:netrw_dirhist_7='/Users/twood8/tmp'
+let g:netrw_dirhist_8='/Users/twood8/.tmux'

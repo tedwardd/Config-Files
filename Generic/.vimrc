@@ -62,3 +62,45 @@ map <C-L> <C-w>l<C-w>_
 if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
     set t_Co=256
 endif
+
+"Syntastic Options
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wg = 0
+
+let g:instant_markdown_slow = 1
+
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
+
+map <C-n> :NERDTreeToggle<CR>
+
+set colorcolumn=80
+
+nnoremap <Leader>H :call<SID>LongLineHLToggle()<cr>
+hi OverLength ctermbg=none cterm=none
+match OverLength /\%>80v/
+fun! s:LongLineHLToggle()
+ if !exists('w:longlinehl')
+  let w:longlinehl = matchadd('ErrorMsg', '.\%>80v', 0)
+  echo "Long lines highlighted"
+ else
+  call matchdelete(w:longlinehl)
+  unl w:longlinehl
+  echo "Long lines unhighlighted"
+ endif
+endfunction
