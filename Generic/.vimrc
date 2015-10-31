@@ -90,17 +90,3 @@ let g:NERDTreeIndicatorMapCustom = {
 map <C-n> :NERDTreeToggle<CR>
 
 set colorcolumn=80
-
-nnoremap <Leader>H :call<SID>LongLineHLToggle()<cr>
-hi OverLength ctermbg=none cterm=none
-match OverLength /\%>80v/
-fun! s:LongLineHLToggle()
- if !exists('w:longlinehl')
-  let w:longlinehl = matchadd('ErrorMsg', '.\%>80v', 0)
-  echo "Long lines highlighted"
- else
-  call matchdelete(w:longlinehl)
-  unl w:longlinehl
-  echo "Long lines unhighlighted"
- endif
-endfunction
