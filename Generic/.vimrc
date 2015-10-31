@@ -1,21 +1,33 @@
-let g:ctrlp_map = '<Leader>t'
-let g:ctrlp_match_window_bottom = 0
-let g:ctrlp_match_window_reversed = 0
-let g:ctrlp_custom_ignore = '\v\~$|\.(o|swap|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_dotfiles = 0
-let g:ctrlp_switch_buffer = 0
 " Pathogen Settings
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-set tabstop=4
-set shiftwidth=4
-"set expandtab
-set nu
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+"set expandtab "Enable this if you want tabs to be spaces instead of <TAB>
+set number "Show line numbers
+set showcmd "Show command at bottom bar
+set cursorline "highlight current line
+filetype indent on "load filetype-specific indent files
+set wildmenu "visual autocomplete for command menu
+set lazyredraw "redraw only when necessary
+set showmatch "highlight matching [{()}]
+set incsearch "show search results as you type
+set hlsearch "highlight search matches
+set ignorecase "ignore case when searching
+set smartcase 
+" map \q to clear highlight matches
+nmap \q :nohlsearch<CR>
+set foldenable "enable folding
+set foldlevelstart=10 "open most folds by default
+set foldnestmax=10 "10 nested fold max
+"toggle open/close folds
+nnoremap <space> za
+set foldmethod=indent "fold based on indent level
+
 syntax enable
-filetype indent on
 set ai
 set ic
 set lbr
@@ -30,14 +42,17 @@ map! ,e <emphasis>
 map! ,p <para>
 map <F3> v/><CR>y
 
-" Customizations from statico.github.com/vim.html
+" move by visual line, not actual line
 nmap j gj
 nmap k gk
-set incsearch
-set ignorecase
-set smartcase
-set hlsearch
-nmap \q :nohlsearch<CR>
+
+"map begin/end of line movement to keys similar to bash
+nnoremap <C-a> ^
+nnoremap <C-e> $
+"remove default mappings for same
+nnoremap $ <nop>
+nnoremap ^ <nop>
+
 nmap <C-e> :e#<CR>
 nmap <C-n> :bnext<CR>
 nmap <C-p> :bprev<CR>
@@ -89,4 +104,11 @@ let g:NERDTreeIndicatorMapCustom = {
 
 map <C-n> :NERDTreeToggle<CR>
 
-set colorcolumn=80
+set colorcolumn=80 "Set red line at column 80 for reference
+
+"Custom backup settings for locations and names of files
+set backup
+set backupdir=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set writebackup
