@@ -1,1 +1,1 @@
-../pathogen/autoload/pathogen.vim
+/home/elw/git/Config-Files/Generic/.vim/bundle/vim-pathogen/autoload/pathogen.vim
