@@ -1,3 +1,3 @@
-[submodule "Generic/.vim/bundle/--force"]
-	path = Generic/.vim/bundle/--force
+[submodule "Generic/.vim/bundle/nerdtree"]
+	path = Generic/.vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
