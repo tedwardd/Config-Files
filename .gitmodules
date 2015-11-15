@@ -4,3 +4,24 @@
 [submodule "Generic/.vim/bundle/vim-pathogen"]
 	path = Generic/.vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
+[submodule "Generic/.vim/bundle/nerdtree-git-plugin"]
+	path = Generic/.vim/bundle/nerdtree-git-plugin
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
+[submodule "Generic/.vim/bundle/syntastic"]
+	path = Generic/.vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "Generic/.vim/bundle/tabular"]
+	path = Generic/.vim/bundle/tabular
+	url = https://github.com/godlygeek/tabular.git
+[submodule "Generic/.vim/bundle/vim-colors-solarized"]
+	path = Generic/.vim/bundle/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "Generic/.vim/bundle/vim-fugitive"]
+	path = Generic/.vim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "Generic/.vim/bundle/vim-instant-markdown"]
+	path = Generic/.vim/bundle/vim-instant-markdown
+	url = https://github.com/suan/vim-instant-markdown.git
+[submodule "Generic/.vim/bundle/vim-json"]
+	path = Generic/.vim/bundle/vim-json
+	url = https://github.com/elzr/vim-json.git
