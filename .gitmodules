@@ -9,7 +9,7 @@
 	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
 [submodule "Generic/.vim/bundle/syntastic"]
 	path = Generic/.vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
+	url = git://github.com/scrooloose/syntastic.git
 [submodule "Generic/.vim/bundle/tabular"]
 	path = Generic/.vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
