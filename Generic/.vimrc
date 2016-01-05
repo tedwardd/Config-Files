@@ -6,6 +6,7 @@ filetype plugin indent on
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
+set expandtab
 "set expandtab "Enable this if you want tabs to be spaces instead of <TAB>
 set number "Show line numbers
 set showcmd "Show command at bottom bar
