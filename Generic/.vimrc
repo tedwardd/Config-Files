@@ -1,7 +1,6 @@
 " Pathogen Settings
 execute pathogen#infect()
 syntax on
-filetype plugin indent on
 
 set tabstop=2
 set shiftwidth=2
@@ -11,6 +10,7 @@ set expandtab
 set number "Show line numbers
 set showcmd "Show command at bottom bar
 set cursorline "highlight current line
+set nocompatible "vImproved only
 filetype indent on "load filetype-specific indent files
 set wildmenu "visual autocomplete for command menu
 set lazyredraw "redraw only when necessary
@@ -85,6 +85,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_jump = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wg = 0
