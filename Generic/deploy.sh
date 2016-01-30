@@ -14,7 +14,9 @@
 #  that's hopefully how you got here to begin with. If not, you'll need to
 #  install that yourself. And while you're at it, do yourself a favor and
 #  clone this repository from this link below to make sure you get the latest
-#  updates: https://github.com/k4k/Config-Files.git
+#  updates:
+#
+#  https://github.com/k4k/Config-Files.git
 
 
 [ -x /usr/bin/yum ] && os="redhat"
