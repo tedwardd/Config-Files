@@ -10,7 +10,11 @@ set expandtab
 set number "Show line numbers
 set showcmd "Show command at bottom bar
 set cursorline "highlight current line
-set nocompatible "vImproved only
+highlight LineNr term=bold cterm=NONE ctermfg=white ctermbg=black
+highlight CursorLine term=bold cterm=NONE ctermbg=236 ctermfg=NONE
+highlight CursorColumn term=NONE ctermbg=236
+set cursorcolumn!
+"set nocompatible "vImproved only
 filetype indent on "load filetype-specific indent files
 set wildmenu "visual autocomplete for command menu
 set lazyredraw "redraw only when necessary
@@ -27,6 +31,7 @@ set foldnestmax=10 "10 nested fold max
 "toggle open/close folds
 nnoremap <space> za
 set foldmethod=indent "fold based on indent level
+set backspace=indent,eol,start
 
 syntax enable
 set ai
@@ -114,3 +119,7 @@ set backupdir=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
+
+let g:ycm_path_to_python_interpreter = '/Users/twood/.pyenv/shims/python'
+
+let g:puppet_align_hashes = 1

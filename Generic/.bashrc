@@ -23,7 +23,8 @@ if [ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
     export GIT_PS1_SHOWDIRTYSTATE=true
     PS1='\[\e[0;32m\]\u\[\e[0m\]@\[\e[0;36m\]\h\[\e[0m\]\n\[\e[0;33m\]\w\[\e[0m\]\[\e[1;36m\]$(__git_ps1 " (%s)")\[\e[0m\] \$ '
 fi
-export TERM=xterm-256color
-export EDITOR=/usr/bin/vim
+#export TERM=xterm-256color
+export EDITOR=/usr/local/bin/vim
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+#export PATH="$HOME/bin:$HOME/.tmux/plugins/tmuxinator/bin:~/.pyenv/shims:$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$HOME/bin:$HOME/.tmux/plugins/tmuxinator/bin:$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

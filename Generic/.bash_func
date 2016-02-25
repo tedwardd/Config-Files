@@ -1,9 +1,9 @@
 dirsize ()
-    {   # This function will determine the size of the files in the pwd
-        ls -A1 | while read name ; do du -sh "${name}" ; done
-    }
+  {   # This function will determine the size of the files in the pwd
+    ls -A1 | while read name ; do du -sh "${name}" ; done
+  }
 
 dash ()
-    {  # This function will launch dash documentation for $*
-       open "dash://${*}"
-    }
+  {  # This function will launch dash documentation for $*
+     open "dash://${*}"
+  }
