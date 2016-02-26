@@ -56,7 +56,7 @@ currentDir=$(pwd)
 
 
 #  Get all git submodules in ~/.vim
-cd "${currentDir}"/.vim
+cd "${currentDir}"/.vim/bundle
 git submodule update --init --recursive
 [ ! -z $? ] && \
   echo "Updating git submodules failed. Aborting" && exit 6
