@@ -34,3 +34,12 @@
 [submodule "Generic/.vim/bundle/vim-misc"]
 	path = Generic/.vim/bundle/vim-misc
 	url = https://github.com/xolox/vim-misc.git
+[submodule "Generic/.vim/bundle/denite.nvim"]
+	path = Generic/.vim/bundle/denite.nvim
+	url = https://github.com/Shougo/denite.nvim.git
+[submodule "Generic/.vim/bundle/vim-go"]
+	path = Generic/.vim/bundle/vim-go
+	url = https://github.com/fatih/vim-go.git
+[submodule "Generic/.vim/bundle/Vundle.vim"]
+	path = Generic/.vim/bundle/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim.git
