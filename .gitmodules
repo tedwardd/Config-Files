@@ -28,3 +28,9 @@
 [submodule "Generic/.vim/bundle/YouCompleteMe"]
 	path = Generic/.vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "Generic/.vim/bundle/vim-notes"]
+	path = Generic/.vim/bundle/vim-notes
+	url = https://github.com/xolox/vim-notes.git
+[submodule "Generic/.vim/bundle/vim-misc"]
+	path = Generic/.vim/bundle/vim-misc
+	url = https://github.com/xolox/vim-misc.git

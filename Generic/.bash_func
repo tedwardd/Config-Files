@@ -1,3 +1,13 @@
+clone ()
+  {
+    git clone "$1" && cd $(basename "$1" .git)
+  }
+
+note ()
+  { # Open vim with notes plugin and $@ as the name of the new note if provided
+    vim -c ":Note ${@}"
+  }
+
 dirsize ()
   {   # This function will determine the size of the files in the pwd
     ls -A1 | while read name ; do du -sh "${name}" ; done
@@ -7,3 +17,71 @@ dash ()
   {  # This function will launch dash documentation for $*
      open "dash://${*}"
   }
+
+tunnel ()
+  { # Too lazy to type full ssh command string for creating tunnels
+    ssh -L $2:localhost:$2  $1
+  }
+
+soma ()
+  { # Quickly access soma radio stations
+    mplayer -playlist http://somafm.com/"$1".plsa
+  }
+
+zw() {
+    ssh db01.zabbix './zabbix_disabled_triggers.sh ; ./zabbix_unsupported_items.sh'
+    DIR=~/zabbix/reports/"$(date +%Y-%m-%d)"
+    mkdir -p "${DIR}"
+    scp db01.zabbix:zabbix_disabled_triggers "${DIR}"
+    scp db01.zabbix:zabbix_unsupported_items "${DIR}"
+    cd "$DIR" || exit 1
+}
+
+zabbix_to_csv() {
+    awk -F '\t' '{print $1, "|", $2, "|", $3}' "${*}"
+}
+
+testFunc ()
+  { # Scratch function for testing
+    echo "this is foo ${1}.temp"
+  }
+
+vpn ()
+  { # VPN function that takes an argument for datacenter. Default atl01
+    dc={$1:-atl}
+    if [ "${1}" == "suw" ]; then
+      sudo openconnect --config ~/.openconnect/config mcvas.rsglab.com --disable-ipv6
+    else
+ #sudo openconnect --config ~/.openconnect/config 10.134.255.65 --disable-ipv6
+ sudo openconnect --config ~/.openconnect/config mcvam.rsglab.com --disable-ipv6
+    fi
+      
+  }
+
+kca ()
+  {
+    kubectl ${1} --all-namespaces ${@:2}
+  }
+
+kc ()
+  {
+    kubectl ${@:1}
+  }
+
+nodepod ()
+  {
+    kubectl get pods --all-namespaces -owide | grep ${1}
+  }
+
+pw ()
+  {
+    dcm hosts pwdhash ${1} | pbcopy
+  }
+
+iloshell ()
+  {
+    local ip=$(dcm hosts info ${1} | awk '/ilo/ {print $2}')
+    ssh root@${ip}
+  }
+
+source "${HOME}"/bin/goworkon
